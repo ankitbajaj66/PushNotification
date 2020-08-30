@@ -22,12 +22,19 @@
         </activity>
 
         <service
-            android:name=".FcmMessageService"
+            android:name=".FCMSilentService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
+
+        <receiver android:name=".MyBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.push.BroadCastReceiver" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
