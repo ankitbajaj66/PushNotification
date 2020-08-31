@@ -3,9 +3,11 @@ package com.example.testpushnotification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.os.Bundle
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
@@ -31,6 +33,8 @@ class FcmMessageService : FirebaseMessagingService() {
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         super.onMessageReceived(remoteMessage)
         Log.d(TAG, "From: ${remoteMessage.from}")
+
+
 
         val notificationManager =
             getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -66,7 +70,7 @@ class FcmMessageService : FirebaseMessagingService() {
         noticationBuilder.setContentIntent(pendingIntent)
 
 
-        notificationManager.notify(0 /* ID of notification */, noticationBuilder.build())
+        notificationManager.notify(0  /*ID of notification*/ , noticationBuilder.build())
     }
 
     companion object {
